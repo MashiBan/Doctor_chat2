@@ -1,12 +1,17 @@
-const mongoose=require('mongoose');
-const url="mongodb://0.0.0.0:27017/depression";
-const connectMongo=async()=>{
+const mongoose = require('mongoose');
+
+const url = "mongodb+srv://kb00664422:c7ftZoq7nTSPgw4f@cluster0.pgimxcr.mongodb.net/depresison";
+
+const connectMongo = async () => {
     try {
-     await mongoose.connect(url)
-     console.log("connected to mongo");
-     
+        await mongoose.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log("Connected to MongoDB");
     } catch (error) {
-     console.log(error)
+        console.error("Error connecting to MongoDB:", error);
     }
- }
- module.exports=connectMongo;
+};
+
+module.exports = connectMongo;
