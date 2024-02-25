@@ -39,7 +39,7 @@ useEffect(() => {
   useEffect(() => {
     const loggedinUser = JSON.parse(localStorage.getItem('userDetail'));
     const fetchConversation = async () => {
-      const res = await fetch(`http://localhost:5000/api/conversation/${loggedinUser?.id}`, {
+      const res = await fetch(`https://doctor-chat2.onrender.com/api/conversation/${loggedinUser?.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ useEffect(() => {
 
   useEffect(() => {
     const fetchusers = async () => {
-      const res = await fetch(`http://localhost:5000/api/users/${user?.id}`, {
+      const res = await fetch(`https://doctor-chat2.onrender.com/api/users/${user?.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ useEffect(() => {
   }, [])
 
   const fetchMessage = async ( conversationId, reciever ) => {
-    const res = await fetch(`http://localhost:5000/api/messages/${conversationId}?senderId=${user?.id}&&recieverId=${reciever?.recieverId}`, {
+    const res = await fetch(`https://doctor-chat2.onrender.com/api/messages/${conversationId}?senderId=${user?.id}&&recieverId=${reciever?.recieverId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ useEffect(() => {
         message,
         recieverId: messages?.reciever?.recieverId
     })
-    const res = await fetch('http://localhost:5000/api/message', {
+    const res = await fetch('https://doctor-chat2.onrender.com/api/message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
